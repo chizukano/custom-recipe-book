@@ -3,3 +3,13 @@
  <%= category.name %>
  <% end %>
 </div>
+<div class="bg-white m-3 p-3">
+  <div class="col-6">
+    <h2 class="h4">Add a new food category</h2>
+    <%= simple_form_for [@category] do |f| %>
+      <%= f.input :name, placeholder: "Food Category", label: false %>
+      <%= f.input :photo, label: false %>
+      <%= f.submit "Add to the list", class: "btn btn-secondary" %>
+    <% end %>
+  </div>
+</div>
