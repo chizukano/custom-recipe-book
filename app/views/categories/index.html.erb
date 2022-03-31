@@ -1,4 +1,4 @@
-<div class="bg-white m-3 p-3">
+<div class="bg-white m-3 p-3 h1">
  <% @categories.each do |category| %>
   <%= cl_image_tag category.photo.key, height: 300, width: 400, crop: :fill %>
   <%= category.name %>
