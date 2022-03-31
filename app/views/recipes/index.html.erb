@@ -1,6 +1,7 @@
-<h1><%= @category.name.upcase %> RECIPES</h1>
-<ul>
-  <% @recipes.each do |recipe| %>
-    <li><%= recipe.name %></li>
+<div class="bg-white m-3">
+  <h1>RECIPES FOR <%= @category.name.upcase %></h1>
+    <% @recipes.each do |recipe| %>
+      <%= recipe.name %>
+      <%= cl_image_tag recipe.photo.key, height: 300, width: 400, crop: :fill %>
     <% end %>
-</ul>
+</div>
