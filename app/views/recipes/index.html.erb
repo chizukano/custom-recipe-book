@@ -1,7 +1,11 @@
-<div class="bg-white m-3">
+<div class="bg-white m-3 p-2">
   <h1>RECIPES FOR <%= @category.name.upcase %></h1>
     <% @recipes.each do |recipe| %>
-      <%= recipe.name %>
-      <%= cl_image_tag recipe.photo.key, height: 300, width: 400, crop: :fill %>
+      <div class="col-3">
+        <div class="card rounded-1 m-3">
+          <h5 class="text-center"><%= recipe.name %></h5>
+          <%= cl_image_tag recipe.photo.key, class: "card-img img-fluid", height: 200, width: 300, crop: :fill %>
+        </div>
+      </div>
     <% end %>
 </div>

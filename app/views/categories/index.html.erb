@@ -1,8 +1,18 @@
 <div class="bg-white m-3 p-3 h1">
- <% @categories.each do |category| %>
-  <%= cl_image_tag category.photo.key, height: 300, width: 400, crop: :fill %>
-  <%= category.name %>
- <% end %>
+  <div class="row">
+    <% @categories.each do |category| %>
+      <div class="col-4">
+        <%= link_to category_recipes_path(category), class:"card" do %>
+          <%= cl_image_tag category.photo.key, class: "card-img img-fluid", height: 100, width: 300, crop: :fill %>
+          <div class="d-flex justify-content-center align-items-center">
+            <div class="card-img-overlay d-flex">
+              <h1 class="card-body align-items-center d-flex justify-content-center"><%= category.name %></h1>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
 <div class="bg-white m-3 p-3">
   <div class="col-6">
@@ -10,7 +20,7 @@
     <%= simple_form_for [@category] do |f| %>
       <%= f.input :name, placeholder: "Food Category", label: false %>
       <%= f.input :photo, label: false %>
-      <%= f.submit "Add to the list", class: "btn btn-secondary" %>
+      <%= f.submit "Add to the list", class: "btn btn-info" %>
     <% end %>
   </div>
 </div>
