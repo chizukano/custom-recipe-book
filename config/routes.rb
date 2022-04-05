@@ -7,4 +7,9 @@ Rails.application.routes.draw do
   end
 
   resources :recipes, only: [:show, :create]
+
+  resources :users, only: [:show] do
+    resources :categories, only: [:index]
+    resources :recipes, only: [:index]
+  end
 end
