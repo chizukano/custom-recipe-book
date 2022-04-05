@@ -25,13 +25,27 @@ category2.save!
 
 puts "done"
 
+puts "creating ingredients"
+ingredient1 = Ingredient.create!(
+  name: "wheat flour",
+  quantity: 200.00,
+  unit: "grams"
+)
+
+ingredient2 = Ingredient.create!(
+  name: "butter",
+  quantity: 90.5,
+  unit: "grams"
+)
+
+puts "done"
+
 puts "creating recipes"
 
 recipe1 = Recipe.create!(
   name: "Pound Cake",
-  description: "Add each ingredients (from wet ingredients first) into the bowl and stir.",
-  ingredients: "Eggs, cups of Milk, Flour",
-  portion: "2, 1, 200",
+  description: "Recipe from Cooking.com",
+  portion: "2",
   user: user,
   category: category2
 )
@@ -41,14 +55,32 @@ recipe1.save!
 
 recipe2 = Recipe.create!(
   name: "Meatball",
-  description: "Add each ingredients (from wet ingredients first) into the bowl and stir.",
-  ingredients: "Eggs, cups of Milk, Flour, Ground Beef",
-  portion: "2, 1, 100, 300",
+  description: "Recipe from my grandma",
+  portion: "5",
   user: user,
   category: category1
 )
 file4 = File.open("db/support/meatball.jpg")
 recipe2.photo.attach(io: file4, filename: "meatball.jpg", content_type: 'image/jpg')
 recipe2.save!
+
+puts "done"
+
+puts "creating recipe ingredients"
+
+RecipeIngredient.new(
+  recipe: recipe1,
+  ingredient: ingredient1
+)
+
+RecipeIngredient.new(
+  recipe: recipe1,
+  ingredient: ingredient2
+)
+
+RecipeIngredient.new(
+  recipe: recipe2,
+  ingredient: ingredient2
+)
 
 puts "done"

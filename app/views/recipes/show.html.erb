@@ -1,0 +1,19 @@
+<div class="bg-white rounded-2 m-3 p-2">
+  <h1><%= @recipe.name %> recipe</h1>
+  <div class="card" style="max-width: 630px">
+    <div class="row">
+      <div class="col-4">
+        <%= cl_image_tag @recipe.photo.key, class:"w-100 rounded-start" %>
+      </div>
+      <div class="col-8">
+        <div class="card-body">
+          <h2>Ingredients</h2>
+          <%= @recipe.ingredients %>
+          <h2>Steps</h2>
+          <%= @recipe.description %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%# <%= link_to "edit", edit_recipe(@recipe), class: "btn-btn-primary" %> %>
+</div>
