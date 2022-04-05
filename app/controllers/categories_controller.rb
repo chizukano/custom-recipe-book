@@ -1,18 +1,17 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.all
-    @category = Category.new
+    @categories = policy_scope(Category).order(created_at: :desc)
   end
 
-  def create
-    @category = Category.new(category_params)
+  # def create
+  #   @category = Category.new(category_params)
 
-    if @category.save
-      redirect_to categories_path
-    else
-      render :index
-    end
-  end
+  #   if @category.save
+  #     redirect_to categories_path
+  #   else
+  #     render :index
+  #   end
+  # end
 
   # def edit
   #   @category = Category.find(params[:id])
@@ -29,9 +28,9 @@ class CategoriesController < ApplicationController
   #   end
   # end
 
-  private
+  # private
 
-  def category_params
-    params.require(:category).permit(:name, :photo)
-  end
+  # def category_params
+  #   params.require(:category).permit(:name, :photo)
+  # end
 end

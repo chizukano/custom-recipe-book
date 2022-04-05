@@ -1,14 +1,12 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.where(category_id: params[:category_id])
     @category = Category.find(params[:category_id])
-    @recipe = Recipe.new
-    @categories = Category.all
+    @recipes = policy_scope(Recipe).where(category_id: params[:category_id])
   end
 
   def show
     @recipe = Recipe.find(params[:id])
-    # @new_recipe = Recipe.new
+    authorize @recipe
   end
 
   # def create
