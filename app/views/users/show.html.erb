@@ -1,16 +1,15 @@
 <div class="bg-white m-3 p-2">
-  <h1>Recipe Page for <%= @user.username %></h1>
-
+  <h1>Cookbook for <%= @user.username %></h1>
   <div class="row">
     <% @user.categories.each do |category| %>
       <%= render "categories/index_card", category: category %>
     <% end %>
     <div class="col-4">
-     <%= link_to user_path(current_user), class: "card bg-body text-black h-100 d-flex justify-content-center" do %>
-      <h3 class="text-center">
-       <%= icon "fa", "circle-plus", class: "me-1 small" %>Add a category
-      </h3>
-     <% end %>
+      <%= link_to new_category_path, class:"card text-decoration-none h-100" do %>
+        <h3 class="text-center">
+          <%= icon "fa", "circle-plus", class: "me-1 small" %>Add a new recipe
+        </h3>
+      <% end %>
     </div>
   </div>
 
@@ -18,12 +17,13 @@
     <% @user.recipes.each do |recipe| %>
       <%= render "recipes/index_card", recipe: recipe %>
     <% end %>
+
     <div class="col-3">
-     <%= link_to user_path(current_user), class: "card bg-body h-100 text-black mt-3 d-flex justify-content-center" do %>
-      <h3 class="text-center">
-        <%= icon "fa", "circle-plus", class: "me-1 small" %>Add a recipe
-      </h3>
-     <% end %>
+      <%= link_to new_recipe_path, class:"card rounded-1 mt-3 mb-2 text-decoration-none h-100" do %>
+        <h3 class="text-center">
+          <%= icon "fa", "circle-plus", class: "me-1 small" %>Add a new recipe
+        </h3>
+      <% end %>
     </div>
   </div>
 </div>

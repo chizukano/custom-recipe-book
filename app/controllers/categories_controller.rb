@@ -3,15 +3,21 @@ class CategoriesController < ApplicationController
     @categories = policy_scope(Category).order(created_at: :desc)
   end
 
-  # def create
-  #   @category = Category.new(category_params)
+  def new
+    @category = Category.new
+    authorize @category
+  end
 
-  #   if @category.save
-  #     redirect_to categories_path
-  #   else
-  #     render :index
-  #   end
-  # end
+  def create
+    @category = Category.new(category_params)
+    authorize @category
+
+    if @category.save
+      redirect_to user_path(current_user)
+    else
+      render :new
+    end
+  end
 
   # def edit
   #   @category = Category.find(params[:id])
@@ -28,9 +34,9 @@ class CategoriesController < ApplicationController
   #   end
   # end
 
-  # private
+  private
 
-  # def category_params
-  #   params.require(:category).permit(:name, :photo)
-  # end
+  def category_params
+    params.require(:category).permit(:name, :photo)
+  end
 end

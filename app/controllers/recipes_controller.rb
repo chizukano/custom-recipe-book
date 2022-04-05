@@ -9,20 +9,25 @@ class RecipesController < ApplicationController
     authorize @recipe
   end
 
-  # def create
-  #   @recipe = Recipe.new(recipe_params)
-  #   @category = @recipe.category
+  def new
+    @recipe = Recipe.new
+    authorize @recipe
+  end
 
-  #   if @recipe.save
-  #     redirect_to category_recipes_path(@category)
-  #   else
-  #     render :index
-  #   end
-  # end
+  def create
+    @recipe = Recipe.new(recipe_params)
+    authorize @recipe
 
-  # private
+    if @recipe.save
+      redirect_to user_path(current_user)
+    else
+      render :new
+    end
+  end
 
-  # def recipe_params
-  #   params.require(:recipe).permit(:name, :description, :portion, :category_id)
-  # end
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:name, :description, :portion, :category, :photo)
+  end
 end

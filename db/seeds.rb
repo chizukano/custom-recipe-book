@@ -5,6 +5,12 @@ user = User.create!(
   password: "123456"
 )
 
+User.new(
+  username: "chika",
+  email: "chika@users.com",
+  password: "123456"
+)
+
 puts "done"
 
 puts "creating categories"
