@@ -27,15 +27,11 @@ puts "done"
 
 puts "creating ingredients"
 ingredient1 = Ingredient.create!(
-  name: "wheat flour",
-  quantity: 200.00,
-  unit: "grams"
+  name: "wheat flour"
 )
 
 ingredient2 = Ingredient.create!(
-  name: "butter",
-  quantity: 90.5,
-  unit: "grams"
+  name: "butter"
 )
 
 puts "done"
@@ -69,16 +65,22 @@ puts "done"
 puts "creating recipe ingredients"
 
 RecipeIngredient.new(
+  quantity: 300,
+  unit: "grams",
   recipe: recipe1,
   ingredient: ingredient1
 )
 
 RecipeIngredient.new(
+  quantity: 90,
+  unit: "grams",
   recipe: recipe1,
   ingredient: ingredient2
 )
 
 RecipeIngredient.new(
+  quantity: 50,
+  unit: "grams",
   recipe: recipe2,
   ingredient: ingredient2
 )

@@ -9,16 +9,3 @@
       </div>
     <% end %>
 </div>
-<div class="bg-white m-3 p-3">
-  <div class="col-6">
-    <h2 class="h4">Add a new recipe</h2>
-    <%= simple_form_for [@recipe] do |f| %>
-      <%= f.input :name, placeholder: "Recipe Name", label: false %>
-      <%= f.input :description, placeholder: "Recipe Note (if any)", label: false %>
-      <%= f.input :portion, placeholder: "# of servings", label: false %>
-      <%= f.input :category, label: "choose the category", collection: @categories %>
-      <%= f.input :photo, label: false %>
-      <%= f.submit "Add to the list", class: "btn btn-info" %>
-    <% end %>
-  </div>
-</div>
