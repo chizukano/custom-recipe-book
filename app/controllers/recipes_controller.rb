@@ -16,6 +16,8 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    @recipe.user = current_user
+
     authorize @recipe
 
     if @recipe.save
@@ -28,6 +30,6 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :description, :portion, :category, :photo)
+    params.require(:recipe).permit(:name, :description, :portion, :category_id, :photo)
   end
 end

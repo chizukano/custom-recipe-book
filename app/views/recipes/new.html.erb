@@ -5,7 +5,7 @@
       <%= f.input :name, placeholder: "Name of Recipe", label: false %>
       <%= f.input :description, placeholder: "Note (if any)", label: false %>
       <%= f.input :portion, placeholder: "# of serving", label: false %>
-      <%= f.association :category, label: false %>
+      <%= f.association :category, collection: Category.all, label: false %>
       <%= f.input :photo, label: false %>
       <%= f.submit "Add to your cookbook", class: "btn btn-info" %>
     <% end %>
