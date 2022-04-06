@@ -70,21 +70,21 @@ puts "done"
 
 puts "creating recipe ingredients"
 
-RecipeIngredient.new(
+RecipeIngredient.create!(
   quantity: 300,
   unit: "grams",
   recipe: recipe1,
   ingredient: ingredient1
 )
 
-RecipeIngredient.new(
+RecipeIngredient.create!(
   quantity: 90,
   unit: "grams",
   recipe: recipe1,
   ingredient: ingredient2
 )
 
-RecipeIngredient.new(
+RecipeIngredient.create!(
   quantity: 50,
   unit: "grams",
   recipe: recipe2,

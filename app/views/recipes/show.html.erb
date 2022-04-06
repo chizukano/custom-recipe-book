@@ -1,17 +1,33 @@
 <div class="bg-white rounded-2 m-3 p-2">
-  <h1><%= @recipe.name %> recipe by <%= @recipe.user.username %>(<%= @recipe.user.id %>)</h1>
-  <div class="card" style="max-width: 630px">
-    <div class="row">
-      <div class="col-4">
-        <%= cl_image_tag @recipe.photo.key, class:"w-100 rounded-start" %>
+  <h1><%= @recipe.name %></h1>
+  <div class="card border-0 rounded-1 shadow-sm mb-3" style="max-width: 630px">
+    <div class="d-flex flex-row">
+        <div class="col-4">
+        <div class="column">
+          <%= cl_image_tag @recipe.photo.key, class:"w-100 rounded-start" %>
+        </div>
+          <div class="card-body">
+            <ul class="list-unstyled">
+              <li>Note: <%= @recipe.description %></li>
+              <li>Serving: <%= @recipe.portion %></li>
+            </ul>
+          </div>
       </div>
-      <div class="col-8">
+      <div class="col-7">
         <div class="card-body">
-          <h2>Notes:</h2>
-          <%= @recipe.description %>
+          <h5>Ingredients</h5>
+          <ul class="list-unstyled">
+            <% @recipe.recipe_ingredients.each do |ingredient| %>
+            <li>
+              <%= ingredient.quantity %>
+              <%= ingredient.unit %>:
+              <%= ingredient.ingredient.name %>
+            </li>
+            <% end %>
+          </ul>
         </div>
       </div>
     </div>
   </div>
-  <%# <%= link_to "Your CookBook", edit_recipe(@recipe), class: "btn-btn-primary" %> %>
+  <%= link_to "Back to #{@recipe.category.name} recipes", root_path, class: "btn-btn-primary mt-2" %>
 </div>
