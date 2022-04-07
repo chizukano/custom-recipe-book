@@ -1,5 +1,5 @@
 <div class="col-4">
-  <%= link_to category_recipes_path(category), class:"card" do %>
+  <%= link_to category_recipes_path(category), class:"card border-0" do %>
     <%= cl_image_tag category.photo.key, class: "card-img img-fluid", height: 150, width: 350, crop: :fill %>
     <div class="d-flex justify-content-center align-items-center">
       <div class="card-img-overlay d-flex">

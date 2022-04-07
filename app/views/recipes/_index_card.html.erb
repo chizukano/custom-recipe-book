@@ -1,5 +1,5 @@
 <div class="col-3">
-  <%= link_to recipe_path(recipe), class:"card rounded-1 mt-3 mb-2 text-decoration-none" do %>
+  <%= link_to recipe_path(recipe), class:"card border-0 rounded-1 text-decoration-none" do %>
       <h5 class="text-center"><%= recipe.name %></h5>
       <%= cl_image_tag recipe.photo.key, class: "card-img img-fluid", height: 200, width: 300, crop: :fill %>
   <% end %>
