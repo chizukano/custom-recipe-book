@@ -1,0 +1,13 @@
+<div class="bg-white m-3 p-3">
+  <div class="col-6">
+    <h2 class="h4">Edit <%= @recipe.name %> recipe</h2>
+    <%= simple_form_for @recipe do |f| %>
+      <%= f.input :name, placeholder: "Name of Recipe", label: false %>
+      <%= f.input :description, placeholder: "Note (if any)", label: false %>
+      <%= f.input :portion, placeholder: "# of serving", label: false %>
+      <%= f.association :category, collection: Category.all, label: false %>
+      <%= f.input :photo, label: false %>
+      <%= f.submit "Finish editing", class: "btn btn-info" %>
+    <% end %>
+  </div>
+</div>

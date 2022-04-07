@@ -4,13 +4,20 @@
     <% @categories.each do |category| %>
       <%= render "categories/index_card", category: category %>
     <% end %>
+    <div class="col-4">
+        <%= link_to new_category_path, class:"card border-0 bg-body text-decoration-none h-100" do %>
+          <h6 class="card-body align-items-center d-flex justify-content-center text-muted">
+            <%= icon "fa", "circle-plus", class: "me-1 small" %>Add a category
+          </h6>
+        <% end %>
+      </div>
   </div>
 </div>
 
 <% if user_signed_in? %>
   <div class="bg-white m-3 p-3">
     <div class="col-6">
-      <%= link_to "Your Cookbook page", user_path, class: "btn btn-info" %>
+      <%= link_to "Go to Your Cookbook", user_path, class: "btn btn-info" %>
     </div>
   </div>
 <% end %>
