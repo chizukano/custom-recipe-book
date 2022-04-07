@@ -1,5 +1,5 @@
 <div class="bg-white m-3 p-2">
-  <h1>RECIPES FOR <%= @category.name%></h1>
+  <h1><%= @category.name.capitalize %> Recipes</h1>
     <div class="row">
       <% @recipes.each do |recipe| %>
         <%= render "recipes/index_card", recipe: recipe %>
