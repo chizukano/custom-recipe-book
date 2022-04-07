@@ -9,7 +9,7 @@
           <div class="card-body">
             <ul class="list-unstyled">
               <li>Note: <%= @recipe.description %></li>
-              <li>Serving: <%= @recipe.portion %></li>
+              <li>Recipe for <%= @recipe.portion > 1 ? @recipe.portion.to_s + ' people' :  @recipe.portion.to_s + ' person' %></li>
             </ul>
           </div>
       </div>
@@ -19,8 +19,8 @@
           <ul class="list-unstyled">
             <% @recipe.recipe_ingredients.each do |ingredient| %>
             <li>
-              <%= ingredient.quantity %>
-              <%= ingredient.unit %>:
+              <%= ingredient.quantity % 1 === 0 ? ingredient.quantity.round(0) : ingredient.quantity %>
+              <%= ingredient.unit %>
               <%= ingredient.ingredient.name %>
             </li>
             <% end %>
