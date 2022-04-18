@@ -7,6 +7,15 @@
       <%= f.input :portion, placeholder: "# of serving", label: false %>
       <%= f.association :category, collection: Category.all, label: false %>
       <%= f.input :photo, label: false %>
+
+      <%= f.simple_fields_for :ingredients do |inner_form| %>
+        <%= inner_form.input :name, label: "ingredient" %>
+        <%= f.fields_for :ingredients_recipe do |inner_form| %>
+          <%= inner_form.input :unit, label: "unit" %>
+          <%= inner_form.input :quantity, label: "quantity" %>
+        <% end %>
+      <% end %>
+
       <%= f.submit "Add to your cookbook", class: "btn btn-info" %>
     <% end %>
   </div>
