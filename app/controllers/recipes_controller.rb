@@ -48,11 +48,12 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe = Recipe.find(params[:id])
+    @category = @recipe.category
     authorize @recipe
 
     @recipe.destroy
 
-    redirect_to recipe_path(@recipe)
+    redirect_to category_recipes_path(@category)
   end
 
   private
