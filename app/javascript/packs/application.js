@@ -14,3 +14,8 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
+
+require("jquery")
+require("@nathanvda/cocoon")
+
+import 'cocoon-js'

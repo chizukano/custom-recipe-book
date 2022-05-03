@@ -4,17 +4,18 @@
     <%= simple_form_for @recipe do |f| %>
       <%= f.input :name, placeholder: "Name of Recipe", label: false %>
       <%= f.input :description, placeholder: "Note (if any)", label: false %>
-      <%= f.input :portion, placeholder: "# of serving", label: false %>
+      <%= f.input :portion, placeholder: "Number of Serving", label: false %>
       <%= f.association :category, collection: Category.all, label: false %>
       <%= f.input :photo, label: false %>
 
-      <%= f.simple_fields_for :ingredients do |inner_form| %>
-        <%= inner_form.input :name, label: "ingredient" %>
-        <%= f.fields_for :ingredients_recipe do |inner_form| %>
-          <%= inner_form.input :unit, label: "unit" %>
-          <%= inner_form.input :quantity, label: "quantity" %>
+      <h3>Ingredients</h3>
+
+        <%= f.simple_fields_for :recipe_ingredients do |recipe_ingredient| %>
+          <%= render 'ingredient_fields', f: recipe_ingredient %>
         <% end %>
-      <% end %>
+        <div class='link'>
+          <%= link_to_add_association 'add ingredient', f, :ingredients, class: "btn btn-primary submit-button" %>
+        </div>
 
       <%= f.submit "Add to your cookbook", class: "btn btn-info" %>
     <% end %>
