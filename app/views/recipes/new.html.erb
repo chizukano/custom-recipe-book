@@ -13,9 +13,6 @@
         <%= f.simple_fields_for :recipe_ingredients do |recipe_ingredient| %>
           <%= render 'ingredient_fields', f: recipe_ingredient %>
         <% end %>
-        <div class='link'>
-          <%= link_to_add_association 'add ingredient', f, :ingredients, class: "btn btn-primary submit-button" %>
-        </div>
 
       <%= f.submit "Add to your cookbook", class: "btn btn-info" %>
     <% end %>
